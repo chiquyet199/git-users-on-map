@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 import { MAP_API_KEY } from 'configs/common'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 const style = {
   width: '100%',

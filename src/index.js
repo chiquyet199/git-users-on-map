@@ -6,6 +6,7 @@ import store from 'configs/store'
 import { HomeScreen } from 'screens'
 
 import 'assets/stylesheets/base.scss'
+import 'assets/stylesheets/common.scss'
 
 render(
   <Provider store={store}>
