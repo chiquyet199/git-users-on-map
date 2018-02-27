@@ -1,9 +1,13 @@
 import React from 'react'
-import { Loading } from 'components'
+import { WorldMap } from 'components'
 
 export class Home extends React.Component {
   render() {
-    return <Loading/>
+    return (
+      <div>
+        <WorldMap />
+      </div>
+    )
   }
 }
 

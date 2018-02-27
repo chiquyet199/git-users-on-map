@@ -1,25 +1,24 @@
 import axios from 'axios'
-import { API_KEY } from 'configs/common'
 
 class Api {
   constructor() {
-    this.baseURL = `https://api.nytimes.com/svc/`
+    this.baseURL = `https://api.github.com/`
   }
 
   get(url) {
     const options = {
       method: 'GET',
-      baseURL: this.baseURL,
-      url: `${url}?api-key=${API_KEY}`,
+      url: `${url}`,
       timeout: 60000,
+    }
+    if (url.indexOf('http://') < 0 || url.indexOf('https://') < 0) {
+      options.baseURL = this.baseURL
     }
 
     return new Promise((resolve, reject) => {
       axios
         .request(options)
-        .then(result => {
-          resolve(result.data.response)
-        })
+        .then(resolve)
         .catch(error => {
           //Handle common error here
           reject(error)

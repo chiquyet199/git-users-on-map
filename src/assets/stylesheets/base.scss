@@ -10,3 +10,10 @@ $breakpoint-mobile: 767px;
   font-family: helvetica;
   font-weight: 200;
 }
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}

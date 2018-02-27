@@ -30,6 +30,7 @@
     "css-loader": "^0.28.7",
     "enzyme-adapter-react-16": "^1.0.0",
     "express": "^4.15.5",
+    "google-maps-react": "^1.1.2",
     "node-sass": "^4.5.3",
     "prop-types": "^15.6.0",
     "raf": "^3.3.2",
@@ -63,7 +64,10 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**", "!src/index.js"],
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/index.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -72,11 +76,16 @@
         "statements": 50
       }
     },
-    "moduleDirectories": ["node_modules", "./"],
+    "moduleDirectories": [
+      "node_modules",
+      "./"
+    ],
     "moduleNameMapper": {
       "^.+.(css|scss|sass)$": "<rootDir>/src/configs/cssStubs.js"
     },
-    "setupFiles": ["raf/polyfill"],
+    "setupFiles": [
+      "raf/polyfill"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
