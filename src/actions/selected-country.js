@@ -1,5 +1,6 @@
 import Api from 'services/api'
 import { MAP_API_KEY } from 'configs/common'
+import { handleServerError } from './common'
 
 export const GET_GIT_USERS_SUCCESS = 'GET_GIT_USERS_SUCCESS'
 export const FOUND_COUNTRY_LOCATION = 'FOUND_COUNTRY_LOCATION'
@@ -20,7 +21,9 @@ function getGitUsersByCountry(country) {
           dispatch({ type: GET_GIT_USERS_SUCCESS, payload })
         }
       })
-      .catch(() => {})
+      .catch(err => {
+        dispatch(handleServerError(err))
+      })
   }
 }
 
@@ -34,7 +37,9 @@ function findCountryLocation(countryName) {
           dispatch({ type: FOUND_COUNTRY_LOCATION, payload: country.geometry.location })
         }
       })
-      .catch(() => {})
+      .catch(err => {
+        dispatch(handleServerError(err))
+      })
   }
 }
 

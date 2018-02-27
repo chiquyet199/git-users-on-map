@@ -3,6 +3,7 @@ import {
   FOUND_COUNTRY_LOCATION,
   GET_GIT_USERS_SUCCESS,
 } from 'actions/selected-country'
+import { SERVER_ERROR } from 'actions/common'
 
 const initialState = {
   name: '',
@@ -22,6 +23,10 @@ actionHandlers[FOUND_COUNTRY_LOCATION] = (state, location) => {
 
 actionHandlers[GET_GIT_USERS_SUCCESS] = (state, users) => {
   return { ...state, users }
+}
+
+actionHandlers[SERVER_ERROR] = state => {
+  return state
 }
 
 export default (state = initialState, action) => {
