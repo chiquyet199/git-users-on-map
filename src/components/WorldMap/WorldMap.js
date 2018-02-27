@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import { User } from 'components'
 import { MAP_API_KEY } from 'configs/common'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
@@ -63,7 +64,7 @@ export class WorldMap extends React.Component {
               <div>
                 <div className="info">Number of Github users: {totalUsers}</div>
                 {gitUsers.map(user => {
-                  return <img key={user.avatar_url} src={user.avatar_url} />
+                  return <User key={user.avatar_url} user={user} />
                 })}
               </div>
             </InfoWindow>
