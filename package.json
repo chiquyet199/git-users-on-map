@@ -1,7 +1,7 @@
 {
-  "name": "app name",
+  "name": "git-users-on-maps",
   "version": "1.1.0",
-  "description": "description",
+  "description": "Simple SPA to show git users on google map",
   "main": "server.js",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
