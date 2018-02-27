@@ -1,6 +1,6 @@
-import reducer from './reducer'
+import selectedCountry from './selected-country'
 import { combineReducers } from 'redux'
 
 export default combineReducers({
-  reducer,
+  selectedCountry,
 })

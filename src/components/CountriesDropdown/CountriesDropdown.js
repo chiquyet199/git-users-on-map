@@ -1,7 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import countries from 'configs/countries'
 import utils from 'services/utils'
+import countries from 'configs/countries'
+import { selectedCountryChanged, findCountryLocation, getGitUsersByCountry } from 'actions/selected-country'
 
 import './CountriesDropdown.scss'
 
@@ -13,7 +16,11 @@ export class CountriesDropdown extends React.Component {
 
   onChange(e) {
     const countryName = e.target.value
-    console.log(countryName)
+    if (countryName) {
+      this.props.findCountryLocation(countryName)
+      this.props.getGitUsersByCountry(countryName)
+      this.props.selectedCountryChanged(countryName)
+    }
   }
 
   render() {
@@ -32,8 +39,23 @@ export class CountriesDropdown extends React.Component {
   }
 }
 
-CountriesDropdown.propTypes = {}
+CountriesDropdown.propTypes = {
+  findCountryLocation: PropTypes.func,
+  selectedCountryChanged: PropTypes.func,
+  getGitUsersByCountry: PropTypes.func,
+}
 
-CountriesDropdown.defaultProps = {}
+CountriesDropdown.defaultProps = {
+  findCountryLocation: () => {},
+  selectedCountryChanged: () => {},
+  getGitUsersByCountry: () => {},
+}
 
-export default CountriesDropdown
+const mapDispatchToProps = dispatch => {
+  return {
+    findCountryLocation: country => dispatch(findCountryLocation(country)),
+    selectedCountryChanged: country => dispatch(selectedCountryChanged(country)),
+    getGitUsersByCountry: country => dispatch(getGitUsersByCountry(country)),
+  }
+}
+export default connect(null, mapDispatchToProps)(CountriesDropdown)
